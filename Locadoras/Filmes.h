@@ -245,6 +245,7 @@ namespace Locadoras {
 		try {
 			conDatabase->Open();
 			myReader = cmdDatabase->ExecuteReader();
+			MessageBox::Show("Salvo Com Sucesso");
 			while (myReader->Read()) {
 			}
 		}
