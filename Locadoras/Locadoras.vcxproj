@@ -121,14 +121,28 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="AlterarFilme.cpp" />
+    <ClCompile Include="CriarFilme.cpp" />
     <ClCompile Include="Filmes.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AlterarFilme.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="CriarFilme.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="Filmes.h">
       <FileType>CppForm</FileType>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="AlterarFilme.resx">
+      <DependentUpon>AlterarFilme.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CriarFilme.resx">
+      <DependentUpon>CriarFilme.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Filmes.resx">
       <DependentUpon>Filmes.h</DependentUpon>
     </EmbeddedResource>

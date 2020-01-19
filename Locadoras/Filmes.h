@@ -1,5 +1,8 @@
 #pragma once
 
+
+#include "CriarFilme.h"
+#include "AlterarFilme.h"
 namespace Locadoras {
 
 	using namespace System;
@@ -36,27 +39,31 @@ namespace Locadoras {
 			}
 		}
 	private: System::Windows::Forms::Button^ button1;
-	private: System::Windows::Forms::Label^ label1;
-	private: System::Windows::Forms::Label^ Nome;
-	private: System::Windows::Forms::TextBox^ nome_filme;
+
+
+
 
 
 
 
 	private: System::Windows::Forms::Label^ label3;
-
-	private: System::Windows::Forms::Label^ label2;
-
-
-	private: System::Windows::Forms::Label^ label4;
-	private: System::Windows::Forms::Label^ label5;
-	private: System::Windows::Forms::TextBox^ sinopse;
-
-	private: System::Windows::Forms::DateTimePicker^ ano_criacao;
-	private: System::Windows::Forms::ComboBox^ categoria;
+	private: System::Windows::Forms::Button^ button2;
+	private: System::Windows::Forms::Button^ button3;
+	private: System::Windows::Forms::Button^ button4;
+	private: System::Windows::Forms::Button^ button5;
 
 
-	private: System::Windows::Forms::ComboBox^ versao;
+
+
+
+
+
+
+
+
+
+
+
 
 
 	private:
@@ -83,149 +90,82 @@ namespace Locadoras {
 		void InitializeComponent(void)
 		{
 			this->button1 = (gcnew System::Windows::Forms::Button());
-			this->label1 = (gcnew System::Windows::Forms::Label());
-			this->Nome = (gcnew System::Windows::Forms::Label());
-			this->nome_filme = (gcnew System::Windows::Forms::TextBox());
 			this->label3 = (gcnew System::Windows::Forms::Label());
-			this->label2 = (gcnew System::Windows::Forms::Label());
-			this->label4 = (gcnew System::Windows::Forms::Label());
-			this->label5 = (gcnew System::Windows::Forms::Label());
-			this->sinopse = (gcnew System::Windows::Forms::TextBox());
-			this->ano_criacao = (gcnew System::Windows::Forms::DateTimePicker());
-			this->categoria = (gcnew System::Windows::Forms::ComboBox());
-			this->versao = (gcnew System::Windows::Forms::ComboBox());
+			this->button2 = (gcnew System::Windows::Forms::Button());
+			this->button3 = (gcnew System::Windows::Forms::Button());
+			this->button4 = (gcnew System::Windows::Forms::Button());
+			this->button5 = (gcnew System::Windows::Forms::Button());
 			this->SuspendLayout();
 			// 
 			// button1
 			// 
-			this->button1->Location = System::Drawing::Point(215, 310);
+			this->button1->Location = System::Drawing::Point(126, 115);
 			this->button1->Name = L"button1";
-			this->button1->Size = System::Drawing::Size(87, 23);
+			this->button1->Size = System::Drawing::Size(186, 52);
 			this->button1->TabIndex = 0;
-			this->button1->Text = L"Login";
+			this->button1->Text = L"Criar Filme";
 			this->button1->UseVisualStyleBackColor = true;
 			this->button1->Click += gcnew System::EventHandler(this, &Filmes::button1_Click);
-			// 
-			// label1
-			// 
-			this->label1->AutoSize = true;
-			this->label1->Location = System::Drawing::Point(37, 71);
-			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(84, 13);
-			this->label1->TabIndex = 1;
-			this->label1->Text = L"Data de Criação";
-			this->label1->Click += gcnew System::EventHandler(this, &Filmes::label1_Click);
-			// 
-			// Nome
-			// 
-			this->Nome->AutoSize = true;
-			this->Nome->Location = System::Drawing::Point(37, 36);
-			this->Nome->Name = L"Nome";
-			this->Nome->Size = System::Drawing::Size(77, 13);
-			this->Nome->TabIndex = 2;
-			this->Nome->Text = L"Nome do Filme";
-			this->Nome->Click += gcnew System::EventHandler(this, &Filmes::Nome_Click);
-			// 
-			// nome_filme
-			// 
-			this->nome_filme->Location = System::Drawing::Point(187, 36);
-			this->nome_filme->Name = L"nome_filme";
-			this->nome_filme->Size = System::Drawing::Size(260, 20);
-			this->nome_filme->TabIndex = 3;
-			this->nome_filme->TextChanged += gcnew System::EventHandler(this, &Filmes::textBox1_TextChanged);
 			// 
 			// label3
 			// 
 			this->label3->AutoSize = true;
-			this->label3->Location = System::Drawing::Point(221, 9);
+			this->label3->Font = (gcnew System::Drawing::Font(L"Verdana", 18, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label3->Location = System::Drawing::Point(173, 53);
 			this->label3->Name = L"label3";
-			this->label3->Size = System::Drawing::Size(60, 13);
+			this->label3->Size = System::Drawing::Size(280, 29);
 			this->label3->TabIndex = 5;
-			this->label3->Text = L"Criar Filmes";
+			this->label3->Text = L"Bem Vindo a Locadora";
+			this->label3->Click += gcnew System::EventHandler(this, &Filmes::label3_Click);
 			// 
-			// label2
+			// button2
 			// 
-			this->label2->AutoSize = true;
-			this->label2->Location = System::Drawing::Point(37, 104);
-			this->label2->Name = L"label2";
-			this->label2->Size = System::Drawing::Size(52, 13);
-			this->label2->TabIndex = 6;
-			this->label2->Text = L"Categoria";
+			this->button2->Location = System::Drawing::Point(126, 183);
+			this->button2->Name = L"button2";
+			this->button2->Size = System::Drawing::Size(186, 52);
+			this->button2->TabIndex = 6;
+			this->button2->Text = L"Alterar Filme";
+			this->button2->UseVisualStyleBackColor = true;
+			this->button2->Click += gcnew System::EventHandler(this, &Filmes::button2_Click);
 			// 
-			// label4
+			// button3
 			// 
-			this->label4->AutoSize = true;
-			this->label4->Location = System::Drawing::Point(37, 147);
-			this->label4->Name = L"label4";
-			this->label4->Size = System::Drawing::Size(40, 13);
-			this->label4->TabIndex = 8;
-			this->label4->Text = L"Versão";
+			this->button3->Location = System::Drawing::Point(335, 115);
+			this->button3->Name = L"button3";
+			this->button3->Size = System::Drawing::Size(186, 52);
+			this->button3->TabIndex = 7;
+			this->button3->Text = L"Excluir Filme";
+			this->button3->UseVisualStyleBackColor = true;
 			// 
-			// label5
+			// button4
 			// 
-			this->label5->AutoSize = true;
-			this->label5->Location = System::Drawing::Point(37, 220);
-			this->label5->Name = L"label5";
-			this->label5->Size = System::Drawing::Size(45, 13);
-			this->label5->TabIndex = 10;
-			this->label5->Text = L"Sinopse";
-			this->label5->Click += gcnew System::EventHandler(this, &Filmes::label5_Click);
+			this->button4->Location = System::Drawing::Point(335, 183);
+			this->button4->Name = L"button4";
+			this->button4->Size = System::Drawing::Size(186, 52);
+			this->button4->TabIndex = 8;
+			this->button4->Text = L"Buscar Filme";
+			this->button4->UseVisualStyleBackColor = true;
 			// 
-			// sinopse
+			// button5
 			// 
-			this->sinopse->Location = System::Drawing::Point(187, 189);
-			this->sinopse->Multiline = true;
-			this->sinopse->Name = L"sinopse";
-			this->sinopse->Size = System::Drawing::Size(260, 91);
-			this->sinopse->TabIndex = 11;
-			// 
-			// ano_criacao
-			// 
-			this->ano_criacao->CustomFormat = L"yyyy-MM-dd";
-			this->ano_criacao->Format = System::Windows::Forms::DateTimePickerFormat::Custom;
-			this->ano_criacao->Location = System::Drawing::Point(187, 71);
-			this->ano_criacao->Name = L"ano_criacao";
-			this->ano_criacao->Size = System::Drawing::Size(260, 20);
-			this->ano_criacao->TabIndex = 12;
-			this->ano_criacao->ValueChanged += gcnew System::EventHandler(this, &Filmes::ano_criacao_ValueChanged);
-			// 
-			// categoria
-			// 
-			this->categoria->FormattingEnabled = true;
-			this->categoria->Items->AddRange(gcnew cli::array< System::Object^  >(7) {
-				L"comedia", L"suspense", L"ficcao", L"terror",
-					L"romance", L"policial", L"acao"
-			});
-			this->categoria->Location = System::Drawing::Point(187, 104);
-			this->categoria->Name = L"categoria";
-			this->categoria->Size = System::Drawing::Size(260, 21);
-			this->categoria->TabIndex = 13;
-			// 
-			// versao
-			// 
-			this->versao->FormattingEnabled = true;
-			this->versao->Items->AddRange(gcnew cli::array< System::Object^  >(3) { L"sem_legenda", L"com_legenda", L"dublado" });
-			this->versao->Location = System::Drawing::Point(187, 147);
-			this->versao->Name = L"versao";
-			this->versao->Size = System::Drawing::Size(260, 21);
-			this->versao->TabIndex = 14;
+			this->button5->Location = System::Drawing::Point(230, 298);
+			this->button5->Name = L"button5";
+			this->button5->Size = System::Drawing::Size(186, 52);
+			this->button5->TabIndex = 9;
+			this->button5->Text = L"Criar Diretor";
+			this->button5->UseVisualStyleBackColor = true;
 			// 
 			// Filmes
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(560, 345);
-			this->Controls->Add(this->versao);
-			this->Controls->Add(this->categoria);
-			this->Controls->Add(this->ano_criacao);
-			this->Controls->Add(this->sinopse);
-			this->Controls->Add(this->label5);
-			this->Controls->Add(this->label4);
-			this->Controls->Add(this->label2);
+			this->ClientSize = System::Drawing::Size(633, 404);
+			this->Controls->Add(this->button5);
+			this->Controls->Add(this->button4);
+			this->Controls->Add(this->button3);
+			this->Controls->Add(this->button2);
 			this->Controls->Add(this->label3);
-			this->Controls->Add(this->nome_filme);
-			this->Controls->Add(this->Nome);
-			this->Controls->Add(this->label1);
 			this->Controls->Add(this->button1);
 			this->Name = L"Filmes";
 			this->Text = L"Filmes";
@@ -237,23 +177,11 @@ namespace Locadoras {
 	private: System::Void label1_Click(System::Object^ sender, System::EventArgs^ e) {
 	}
 	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
-		String^ constring = L"datasource=localhost;port=3306;username=root;password=";
-		MySqlConnection^ conDatabase = gcnew MySqlConnection(constring);
-		MySqlCommand^ cmdDatabase = gcnew MySqlCommand("insert into locadora.filme (nome_filme,ano_criacao,categoria,versao,sinopse) values ('" + this->nome_filme->Text + "','" + this->ano_criacao->Text + "','" + this->categoria->Text + "','" + this->versao->Text + "','" + this->sinopse->Text + "'); ", conDatabase);
-		MySqlDataReader^ myReader;
-
-		try {
-			conDatabase->Open();
-			myReader = cmdDatabase->ExecuteReader();
-			MessageBox::Show("Salvo Com Sucesso");
-			while (myReader->Read()) {
-			}
-		}
-		catch(Exception^ex){
-			MessageBox::Show(ex->Message);
-		}
+		this->Hide();
+		CriarFilme^ CF = gcnew CriarFilme;
+		CF->ShowDialog();
 	}
-	private: System::Void textBox1_TextChanged(System::Object^ sender, System::EventArgs^ e) {
+private: System::Void textBox1_TextChanged(System::Object^ sender, System::EventArgs^ e) {
 	}
 private: System::Void Nome_Click(System::Object^ sender, System::EventArgs^ e) {
 }
@@ -262,6 +190,23 @@ private: System::Void label5_Click(System::Object^ sender, System::EventArgs^ e)
 private: System::Void webBrowser1_DocumentCompleted(System::Object^ sender, System::Windows::Forms::WebBrowserDocumentCompletedEventArgs^ e) {
 }
 private: System::Void ano_criacao_ValueChanged(System::Object^ sender, System::EventArgs^ e) {
+}
+private: System::Void categoria_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e) {
+}
+private: System::Void sinopse_TextChanged(System::Object^ sender, System::EventArgs^ e) {
+}
+private: System::Void label4_Click(System::Object^ sender, System::EventArgs^ e) {
+}
+private: System::Void label2_Click(System::Object^ sender, System::EventArgs^ e) {
+}
+private: System::Void label3_Click(System::Object^ sender, System::EventArgs^ e) {
+}
+private: System::Void versao_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e) {
+}
+private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) {
+	this->Hide();
+	AlterarFilme^ AF = gcnew AlterarFilme;
+	AF->ShowDialog();
 }
 };
 }
