@@ -49,8 +49,10 @@ namespace Locadoras {
 	private: System::Windows::Forms::ComboBox^ comboBoxVersao;
 
 	private: System::Windows::Forms::Label^ label6;
-	private: System::Windows::Forms::DateTimePicker^ dateTimeData;
+	private: System::Windows::Forms::DateTimePicker^ ano_criacao;
+
 	private: System::Windows::Forms::TextBox^ textBox1Sinopse;
+	private: System::Windows::Forms::Button^ button1;
 
 
 
@@ -89,8 +91,9 @@ namespace Locadoras {
 			this->comboBoxCategoria = (gcnew System::Windows::Forms::ComboBox());
 			this->comboBoxVersao = (gcnew System::Windows::Forms::ComboBox());
 			this->label6 = (gcnew System::Windows::Forms::Label());
-			this->dateTimeData = (gcnew System::Windows::Forms::DateTimePicker());
+			this->ano_criacao = (gcnew System::Windows::Forms::DateTimePicker());
 			this->textBox1Sinopse = (gcnew System::Windows::Forms::TextBox());
+			this->button1 = (gcnew System::Windows::Forms::Button());
 			this->SuspendLayout();
 			// 
 			// label1
@@ -184,14 +187,14 @@ namespace Locadoras {
 			this->label6->TabIndex = 8;
 			this->label6->Text = L"Editar Versão";
 			// 
-			// dateTimeData
+			// ano_criacao
 			// 
-			this->dateTimeData->CustomFormat = L"yyyy-MM-dd";
-			this->dateTimeData->Format = System::Windows::Forms::DateTimePickerFormat::Custom;
-			this->dateTimeData->Location = System::Drawing::Point(311, 146);
-			this->dateTimeData->Name = L"dateTimeData";
-			this->dateTimeData->Size = System::Drawing::Size(291, 20);
-			this->dateTimeData->TabIndex = 9;
+			this->ano_criacao->CustomFormat = L"yyyy-MM-dd";
+			this->ano_criacao->Format = System::Windows::Forms::DateTimePickerFormat::Custom;
+			this->ano_criacao->Location = System::Drawing::Point(311, 146);
+			this->ano_criacao->Name = L"ano_criacao";
+			this->ano_criacao->Size = System::Drawing::Size(291, 20);
+			this->ano_criacao->TabIndex = 9;
 			// 
 			// textBox1Sinopse
 			// 
@@ -201,13 +204,24 @@ namespace Locadoras {
 			this->textBox1Sinopse->Size = System::Drawing::Size(291, 118);
 			this->textBox1Sinopse->TabIndex = 10;
 			// 
+			// button1
+			// 
+			this->button1->Location = System::Drawing::Point(301, 421);
+			this->button1->Name = L"button1";
+			this->button1->Size = System::Drawing::Size(174, 23);
+			this->button1->TabIndex = 11;
+			this->button1->Text = L"Alterar";
+			this->button1->UseVisualStyleBackColor = true;
+			this->button1->Click += gcnew System::EventHandler(this, &AlterarFilme::button1_Click);
+			// 
 			// AlterarFilme
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(745, 443);
+			this->ClientSize = System::Drawing::Size(745, 471);
+			this->Controls->Add(this->button1);
 			this->Controls->Add(this->textBox1Sinopse);
-			this->Controls->Add(this->dateTimeData);
+			this->Controls->Add(this->ano_criacao);
 			this->Controls->Add(this->label6);
 			this->Controls->Add(this->comboBoxVersao);
 			this->Controls->Add(this->comboBoxCategoria);
@@ -223,10 +237,8 @@ namespace Locadoras {
 			this->PerformLayout();
 
 		}
-#pragma endregion
-	private: System::Void comboBox1_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e) {		
-	}
 	private: void FillCombo(void) {
+
 		String^ AlterString = L"datasource=localhost;port=3306;username=root;password=";
 		MySqlConnection^ AlterDatabase = gcnew MySqlConnection(AlterString);
 		MySqlCommand^ cmdAlterDatabase = gcnew MySqlCommand("select * from locadora.filme;", AlterDatabase);
@@ -235,15 +247,65 @@ namespace Locadoras {
 		try {
 			AlterDatabase->Open();
 			AlterReader = cmdAlterDatabase->ExecuteReader();
-			while (AlterReader->Read()) {
+			while(AlterReader->Read()) {
 				String^ lName;
 				lName = AlterReader->GetString("nome_filme");
-				comboBoxName->Items->Add(lName);
-			}
+				comboBoxName->Items->Add(lName);				
+			}			
 		}
 		catch (Exception ^ ex) {
 			MessageBox::Show(ex->Message);
 		}
+		
 	}
+#pragma endregion
+	private: System::Void comboBox1_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e) {		
+			String^ Nomes = comboBoxName->Text;
+
+			String^ AlterString = L"datasource=localhost;port=3306;username=root;password=";
+			MySqlConnection^ AlterDatabase = gcnew MySqlConnection(AlterString);
+			MySqlCommand^ cmdAlterDatabase = gcnew MySqlCommand("select * from locadora.filme where nome_filme ='"+Nomes+"';", AlterDatabase);
+			MySqlDataReader^ AlterReader;
+
+			try {
+				AlterDatabase->Open();
+				AlterReader = cmdAlterDatabase->ExecuteReader();
+				if(AlterReader->Read()) {
+					String^ ano_criacao_Value = AlterReader->GetString("ano_criacao");
+					ano_criacao->Text = ano_criacao_Value;
+
+					String^ categoria_Value = AlterReader->GetString("categoria");
+					comboBoxCategoria->Text = categoria_Value;
+
+					String^ versao_Value = AlterReader->GetString("versao");
+					comboBoxVersao->Text = versao_Value;
+
+					String^ sinopse_Value = AlterReader->GetString("sinopse");
+					textBox1Sinopse->Text = sinopse_Value;
+				}
+
+			}
+			catch (Exception ^ ex) {
+				MessageBox::Show(ex->Message);
+			}
+	}
+	
+private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
+	String^ constring = L"datasource=localhost;port=3306;username=root;password=";
+	MySqlConnection^ conDatabase = gcnew MySqlConnection(constring);
+	MySqlCommand^ cmdDatabase = gcnew MySqlCommand("update locadora.filme  set nome_filme ='" + this->comboBoxName->Text + "',ano_criacao='" + this->ano_criacao->Text + "',categoria='" + this->comboBoxCategoria->Text + "','" + this->comboBoxVersao->Text + "','" + this->textBox1Sinopse->Text + "' where nome_filme = '"+ this->comboBoxName->Text +"'); ", conDatabase);
+	MySqlDataReader^ myReader;
+
+	try {
+		conDatabase->Open();
+		myReader = cmdDatabase->ExecuteReader();
+		MessageBox::Show("Salvo Com Sucesso");
+		while (myReader->Read()) {
+		}
+	}
+	catch (Exception ^ ex) {
+		MessageBox::Show(ex->Message);
+	}
+}
 };
 }
