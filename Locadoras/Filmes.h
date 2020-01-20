@@ -3,6 +3,7 @@
 
 #include "CriarFilme.h"
 #include "AlterarFilme.h"
+#include "Diretor.h"
 namespace Locadoras {
 
 	using namespace System;
@@ -155,6 +156,7 @@ namespace Locadoras {
 			this->button5->TabIndex = 9;
 			this->button5->Text = L"Criar Diretor";
 			this->button5->UseVisualStyleBackColor = true;
+			this->button5->Click += gcnew System::EventHandler(this, &Filmes::button5_Click_1);
 			// 
 			// Filmes
 			// 
@@ -207,6 +209,12 @@ private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e
 	this->Hide();
 	AlterarFilme^ AF = gcnew AlterarFilme;
 	AF->ShowDialog();
+}
+
+private: System::Void button5_Click_1(System::Object^ sender, System::EventArgs^ e) {
+	this->Hide();
+	Diretor^ D = gcnew Diretor;
+	D->ShowDialog();
 }
 };
 }

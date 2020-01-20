@@ -123,6 +123,7 @@
   <ItemGroup>
     <ClCompile Include="AlterarFilme.cpp" />
     <ClCompile Include="CriarFilme.cpp" />
+    <ClCompile Include="Diretor.cpp" />
     <ClCompile Include="Filmes.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -130,6 +131,9 @@
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="CriarFilme.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="Diretor.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="Filmes.h">
@@ -142,6 +146,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CriarFilme.resx">
       <DependentUpon>CriarFilme.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Diretor.resx">
+      <DependentUpon>Diretor.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Filmes.resx">
       <DependentUpon>Filmes.h</DependentUpon>

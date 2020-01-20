@@ -1,5 +1,6 @@
   Locadoras.AlterarFilme.resources - Embedded, ContainedInManifestFile, 
   Locadoras.CriarFilme.resources - Embedded, ContainedInManifestFile, 
+  Locadoras.Diretor.resources - Embedded, ContainedInManifestFile, 
   Locadoras.Filmes.resources - Embedded, ContainedInManifestFile, 
 ImageRuntimeVersion: v4.0.30319
 Assembly Locadoras, Version=0.0.*, Culture=Idioma Invariável (País Invariável): 
@@ -22,6 +23,9 @@ Class Locadoras.AlterarFilme: AutoLayout, AnsiClass, Class, Public, BeforeFieldI
   :System.Windows.Forms.Form
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
 Class Locadoras.CriarFilme: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.Windows.Forms.Form
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+Class Locadoras.Diretor: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
   :System.Windows.Forms.Form
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
 Class Locadoras.Filmes: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
