@@ -24,3 +24,5 @@
     <li>“M” é de MySQL. A função do MySQL é ser o sistema de gerenciamento do banco de dados do seu servidor. Ele armazena toda informação relevante do seu projeto, como o conteúdo de um site, perfis de usuários, etc.</li>
     <li>“P” é de PHP. É uma linguagem de programação usada para desenvolver o WordPress. Ela atua como uma espécie de “cola” para todo o pacote de softwares. O PHP roda em conjunto com o Apache e se comunicando com o MySQL.</li>
 </ol></br>
+
+<p>Ápos a instalção do wampserver, fiz a instalação do Visual Studio, neste configurei os pacotes nescessários para utilizar com o c++, após tudo instalado, wampserver estartado, depois de referenciar o meu mysql no visual studio, construi as telas. Para criar os esquemas do mysql utilizei o propio workbench, mais para persistir os dados fiz a conexão do c++ com o servidor do banco.</p>
